@@ -1,6 +1,4 @@
-import time as t
-
-tempoInicial = t.time()
+import timeit as t
 
 def pesquisa_binaria(A, item):
     """Implementa pesquisa binária iterativamente."""
@@ -15,10 +13,9 @@ def pesquisa_binaria(A, item):
             esquerda = meio + 1
     return -1
 
-vetor = [1 for _ in range(100000000)]
+vetor = [1 for _ in range(50000000)]
 
-pesquisa_binaria(vetor, 0)
 
-tempoFinal = t.time()
+tempo = t.timeit(lambda: pesquisa_binaria(vetor, 0), number=10000)
 
-print(f'{tempoFinal - tempoInicial}')
+print(tempo)
